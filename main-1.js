@@ -49,10 +49,10 @@ class UI {
 
 //  reseting
     static reseting() {
-      let todoList = document.querySelectorAll('.todo__list');
+      let todoItems = document.querySelectorAll('.todo__item');
 
 //      remove each item in list
-      Array.from(todoList).forEach(item => item.remove());
+      Array.from(todoItems).forEach(item => item.remove());
     }
 }
 
@@ -181,7 +181,6 @@ reset.addEventListener('click', () => {
   Storage.resetingStorage();
 })
 
-console.log(reset)
 
 
 
