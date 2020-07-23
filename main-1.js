@@ -112,7 +112,7 @@ class Storage {
       let checkedItem = items.find(item => item.inputed === target.nextElementSibling.textContent);
 
 //       if true then item becomes checked
-      if(window.getComputedStyle(target).borderWidth === '2px'){
+      if(window.getComputedStyle(target).borderWidth !== '4px' || window.getComputedStyle(target).MozBorderEndWidth !== '4px'){
         checkedItem.check = 'checked';
       } else {
         checkedItem.check = 'not-checked';
