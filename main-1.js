@@ -112,10 +112,12 @@ class Storage {
       let checkedItem = items.find(item => item.inputed === target.nextElementSibling.textContent);
 
 //       if true then item becomes checked
-      if(window.getComputedStyle(target).borderWidth !== '4px' || window.getComputedStyle(target).MozBorderEndWidth !== '4px'){
+      if(target.classList.contains('checkbox-not-checked')) {
         checkedItem.check = 'checked';
+        console.log(1);
       } else {
         checkedItem.check = 'not-checked';
+        console.log(2);
       }
 
 //      push new items list to storage
