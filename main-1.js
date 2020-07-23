@@ -20,11 +20,11 @@ class UI {
 };
 
 //    get inputed and class from storage and insert it into html
-    static addItem(item, classes) {
+    static addItem(item, check) {
       const list = document.querySelector('.todo__list');
       list.insertAdjacentHTML('afterBegin', `<div class="todo__item">
-          <input type="checkbox" class="todo__check checkbox-${classes}">
-          <span class="span-${classes}">${item}</span>
+          <input type="checkbox" class="todo__check checkbox-${check}">
+          <span class="span-${check}">${item}</span>
           <i class="fas fa-eraser todo__eraser" aria-hidden="true"></i>
         </div>`)
     }
@@ -112,12 +112,10 @@ class Storage {
       let checkedItem = items.find(item => item.inputed === target.nextElementSibling.textContent);
 
 //       if true then item becomes checked
-      if(target.classList.contains('checkbox-not-checked')) {
+      if(!target.classList.contains('checkbox-checked')) {
         checkedItem.check = 'checked';
-        console.log(1);
       } else {
         checkedItem.check = 'not-checked';
-        console.log(2);
       }
 
 //      push new items list to storage
@@ -144,7 +142,7 @@ form.addEventListener('submit', (e) => {
 //  create pair key-value
   const newItem = new Todo(input.value, 'not-checked');
 
-//  make it shown
+  //  make it shown
   UI.addItem(newItem.inputed);
 
 //  push to store
